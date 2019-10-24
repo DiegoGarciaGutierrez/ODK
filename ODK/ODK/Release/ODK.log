@@ -1,0 +1,42 @@
+﻿Build started 23/10/2019 17:41:00.
+     1>Project "C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\ODK\ODK.vcxproj" on node 2 (Build target(s)).
+     1>PreBuildEvent:
+         "C:\Program Files (x86)\Siemens\Automation\ODK1500S\V2.0\bin\ODK_CodeGenerator.exe" /V "C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\ODK\"
+         :VCEnd
+         ---- ODK Code Generator started ----
+         Parsing file ODK.odk
+         Generating file ODK_Execution.cpp
+         Generating file ODK_Types.h
+         Generating file ODK_Functions.h
+         Generating file ODK.scl
+         Checking file ODK.rc
+         ---- ODK Code Generator finished ----
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./src_cg_priv/ /I./src_odk_helpers/ /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D DLL_EXPORT /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\ODK.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ODK.cpp src_odk_helpers\ODK_CpuReadData.cpp src_odk_helpers\ODK_CpuReadWriteData.cpp src_odk_helpers\ODK_StringHelper.cpp
+         ODK.cpp
+     1>ODK.cpp(78): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>ODK.cpp(65): warning C4101: 'info' : unreferenced local variable
+         ODK_CpuReadData.cpp
+         ODK_CpuReadWriteData.cpp
+         ODK_StringHelper.cpp
+         Generating Code...
+     1>c:\users\disauser\documents\visual studio 2013\projects\odk\odk\odk.cpp(106): warning C4715: 'komunikatu' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./src_cg_priv/ /I./src_odk_helpers/ /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D DLL_EXPORT /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src_cg_priv\ODK_Execution.cpp
+         ODK_Execution.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\Release\ODK.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\Release\ODK.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\Release\ODK.lib" /MACHINE:X86 /SAFESEH /DLL Release\ODK.res
+         Release\dllmain.obj
+         Release\ODK.obj
+         Release\ODK_Execution.obj
+         Release\ODK_CpuReadData.obj
+         Release\ODK_CpuReadWriteData.obj
+         Release\ODK_StringHelper.obj
+         Release\stdafx.obj
+            Creating library C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\Release\ODK.lib and object C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\Release\ODK.exp
+         ODK.vcxproj -> C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\Release\ODK.dll
+     1>Done Building Project "C:\Users\DisaUser\Documents\Visual Studio 2013\Projects\ODK\ODK\ODK.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.44

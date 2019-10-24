@@ -1,0 +1,186 @@
+FUNCTION_BLOCK "ODK_to_JADE_Load"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//This block is AUTO GENERATED - DO NOT MODIFY this block!
+//Created by ODK_CodeGenerator version 200.0.3002.1
+//at mié octubre 23 17:41:00 2019
+//********************************************************
+  VAR_INPUT 
+    REQ : Bool;
+  END_VAR
+  VAR_OUTPUT 
+    DONE : Bool;
+    BUSY : Bool;
+    ERROR : Bool;
+    STATUS : Int;
+  END_VAR
+  VAR 
+    ODK_Load_Instance {OriginalPartName := 
+        'ODK_Load_SFB_2011'; LibVersion := '1.0'} : ODK_Load;
+    _odk_internal_LIBRARY_NAME : String := '<nrt>ODK.dll';
+  END_VAR
+  VAR CONSTANT 
+    _odk_internal_INSTANCE_ID : UDInt := 2829262267;
+  END_VAR
+BEGIN
+  //
+  // DO NOT CHANGE BELOW OF THIS LINE !!
+  // This is an automatic generated block by the
+  // SIMATIC ODK 1500S V2.0
+  // DO NOT CHANGE !!
+  //
+  #ODK_Load_Instance (REQ:=#REQ,
+                      LIBRARY_NAME:=#_odk_internal_LIBRARY_NAME,
+                      INSTANCE_ID:=#_odk_internal_INSTANCE_ID,
+                      DONE=>#DONE,
+                      BUSY=>#BUSY,
+                      ERROR=>#ERROR,
+                      STATUS=>#STATUS);
+  //
+  // DO NOT CHANGE !!
+  // This is an automatic generated block by the
+  // SIMATIC ODK 1500S V2.0
+  // DO NOT CHANGE ABOVE OF THIS LINE !!
+  //
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK "ODK_to_JADE_Unload"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//This block is AUTO GENERATED - DO NOT MODIFY this block!
+//Created by ODK_CodeGenerator version 200.0.3002.1
+//at mié octubre 23 17:41:00 2019
+//********************************************************
+  VAR_INPUT 
+    REQ : Bool;
+  END_VAR
+  VAR_OUTPUT 
+    DONE : Bool;
+    BUSY : Bool;
+    ERROR : Bool;
+    STATUS : Int;
+  END_VAR
+  VAR
+    ODK_Unld_Instance {OriginalPartName := 
+         'ODK_Unld_SFB_2012'; LibVersion := '1.0'} : ODK_Unld;
+  END_VAR
+  VAR CONSTANT 
+    _odk_internal_INSTANCE_ID : UDInt := 2829262267;
+  END_VAR
+BEGIN
+  //
+  // DO NOT CHANGE BELOW OF THIS LINE !!
+  // This is an automatic generated block by the
+  // SIMATIC ODK 1500S V2.0
+  // DO NOT CHANGE !!
+  //
+  #ODK_Unld_Instance (REQ:=#REQ,
+                      INSTANCE_ID:=#_odk_internal_INSTANCE_ID,
+                      DONE=>#DONE,
+                      BUSY=>#BUSY,
+                      ERROR=>#ERROR,
+                      STATUS=>#STATUS);    
+  //
+  // DO NOT CHANGE !!
+  // This is an automatic generated block by the
+  // SIMATIC ODK 1500S V2.0
+  // DO NOT CHANGE ABOVE OF THIS LINE !!
+  //
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK "ODK_to_JADEkomunikatu"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//This block is AUTO GENERATED - DO NOT MODIFY this block!
+//Created by ODK_CodeGenerator version 200.0.3002.1
+//at mié octubre 23 17:41:00 2019
+//********************************************************
+// Basic function in order to show 
+// how to create a function in ODK 1500S.
+  VAR_INPUT
+    REQ : Bool;
+    "lankarga" : INT;
+    "piezamota" : STRING[254];
+  END_VAR
+  VAR_OUTPUT
+    ERROR : Bool := false;
+    DONE : Bool := false;
+    BUSY : Bool := false;
+    STATUS : INT := 0;
+
+  END_VAR
+  VAR_IN_OUT
+    "piezaonartua" : BOOL;
+  END_VAR
+  VAR
+    _odk_internal_Last_REQ : Bool := false;
+    _odk_internal_Last_BUSY : Bool := false;
+    ODK_ExcA_Instance {OriginalPartName :=
+            'ODK_ExcA_SFB_2013'; LibVersion := '1.0'} : ODK_ExcA;
+    _odk_internal_IN_BUFFER : Array [0..257] of Byte;
+    _odk_internal_INOUT_BUFFER : Array [0..0] of Byte;
+  END_VAR
+  VAR_TEMP 
+    _odk_internal_pos : DInt;
+    _odk_internal_err : Int;
+    _odk_internal_i : Int;
+    _odk_internal_tmpStringLen : Byte;
+  END_VAR
+  VAR CONSTANT 
+    _odk_internal_INSTANCE_ID : UDINT := 2829262267;
+    _odk_internal_COMMAND : UDINT := 3317920330;
+  END_VAR
+BEGIN
+  //
+  // DO NOT CHANGE BELOW OF THIS LINE !!
+  // This is an automatic generated block by the
+  // SIMATIC ODK 1500S V2.0
+  // DO NOT CHANGE !!
+  //
+  // Basic function in order to show 
+  // how to create a function in ODK 1500S.
+  IF NOT #_odk_internal_Last_REQ & #REQ & NOT #_odk_internal_Last_BUSY THEN
+    #_odk_internal_pos := 0;
+    #_odk_internal_err := WRITE_LITTLE ( src_variable := #lankarga, dest_array := #_odk_internal_IN_BUFFER,  pos := #_odk_internal_pos);
+    #_odk_internal_tmpStringLen := INT_TO_BYTE (LEN(#piezamota));
+    #_odk_internal_IN_BUFFER[#_odk_internal_pos] := BYTE#254;
+    #_odk_internal_pos  := #_odk_internal_pos + 1;
+    #_odk_internal_IN_BUFFER[#_odk_internal_pos] := _odk_internal_tmpStringLen;
+    #_odk_internal_pos  := #_odk_internal_pos + 1;
+    FOR #_odk_internal_i := 1 TO BYTE_TO_INT(#_odk_internal_tmpStringLen) DO
+      #_odk_internal_IN_BUFFER[#_odk_internal_pos] := CHAR_TO_BYTE(#piezamota[#_odk_internal_i]);
+      #_odk_internal_pos  := #_odk_internal_pos + 1;
+    END_FOR;
+    #_odk_internal_pos  := #_odk_internal_pos + 254 - #_odk_internal_tmpStringLen;
+    #_odk_internal_pos := 0;
+    IF (True = #piezaonartua) THEN
+      #_odk_internal_INOUT_BUFFER[#_odk_internal_pos] := BYTE#1;
+    ELSE
+      #_odk_internal_INOUT_BUFFER[#_odk_internal_pos] := BYTE#0;
+    END_IF;
+    #_odk_internal_pos  := #_odk_internal_pos + 1;    
+  END_IF;
+  #_odk_internal_Last_REQ := #REQ;	
+  #ODK_ExcA_Instance(REQ:=#REQ,
+                     INSTANCE_ID:=#_odk_internal_INSTANCE_ID,
+                     COMMAND:=#_odk_internal_COMMAND,
+                     IN_DATA:=#_odk_internal_IN_BUFFER,
+                     INOUT_DATA:=#_odk_internal_INOUT_BUFFER,
+                     OUT_DATA:=null,
+                     DONE=>#DONE,
+                     BUSY=>#BUSY,
+                     ERROR=>#ERROR,
+                     STATUS=>#STATUS);
+  IF NOT #BUSY & #_odk_internal_Last_BUSY & NOT #ERROR THEN
+    #_odk_internal_pos := 0;
+    #piezaonartua := BYTE_TO_BOOL(#_odk_internal_INOUT_BUFFER[#_odk_internal_pos]);
+    #_odk_internal_pos  := #_odk_internal_pos + 1;
+  END_IF;
+  #_odk_internal_Last_BUSY := #BUSY;
+  //
+  // DO NOT CHANGE !!
+  // This is an automatic generated block by the
+  // SIMATIC ODK 1500S V2.0
+  // DO NOT CHANGE ABOVE OF THIS LINE !!
+  //
+END_FUNCTION_BLOCK
